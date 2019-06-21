@@ -1,0 +1,12 @@
+Jun 17, 2019 12:11:01 PM TestFile main
+SEVERE: this is sever
+Jun 17, 2019 12:11:03 PM TestFile main
+SEVERE: this is sever
+Jun 17, 2019 12:12:39 PM TestFile main
+SEVERE: this is sever
+Jun 17, 2019 12:12:39 PM Product buy
+SEVERE: this is sever from buy
+Jun 17, 2019 12:13:48 PM TestFile main
+SEVERE: this is sever
+Jun 17, 2019 12:13:48 PM Product buy
+SEVERE: this is sever from buy
