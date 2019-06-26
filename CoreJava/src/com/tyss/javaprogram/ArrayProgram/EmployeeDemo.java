@@ -1,9 +1,11 @@
-package com.tyss.javaprogram.ArrayProgram;
+package com.tyss.javaprogram.arrayprogram;
 
 import java.util.Arrays;
 
-import com.tyss.javaprogram.constructor.Empolyee;
 
+import lombok.extern.java.Log;
+
+@Log
 public class EmployeeDemo {
 	public static void main(String[] args) {
 
@@ -17,13 +19,13 @@ public class EmployeeDemo {
 		e3.setName("Ramesh");
 		e3.setId(3);
 		Employee emp[] = { e1, e2, e3 };
-	 	
-           Arrays.sort(emp);
+
+		Arrays.sort(emp);
 		for (Employee employee : emp) {
 
-			System.out.println("Name " + employee.getName());
-			System.out.println("id " + employee.getId());
-			System.out.println("=================");
+			log.info("Name " + employee.getName());
+			log.info("id " + employee.getId());
+			log.info("=================");
 
 		}
 

@@ -8,7 +8,6 @@ public class MainIrctc {
 			  p.book();  
 		  }
 		  catch (Exception e) {
-			// TODO: handle exception
 		}
 		  
 	}

@@ -1,4 +1,5 @@
 package com.tyss.javaprogram.constructor;
+import lombok.extern.java.Log;
 
 public class A {
       int n=90;
@@ -8,6 +9,7 @@ public class A {
 	}
       
 }
+@Log
  class B extends A
  {
 	    int n=60;
@@ -15,9 +17,9 @@ public class A {
 	    void m()
 	    {
 	    	int n=30;
-	    	System.out.println(n);
-	    	System.out.println(this.n);
-	    	System.out.println(super.n);
+	    	log.info(""+n);
+	    	log.info(""+this.n);
+	    	log.info(""+super.n);
 	    }
 	 
  }

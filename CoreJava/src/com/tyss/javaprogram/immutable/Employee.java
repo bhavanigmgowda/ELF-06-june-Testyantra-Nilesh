@@ -1,5 +1,8 @@
 package com.tyss.javaprogram.immutable;
 
+/*
+ * BEAN CLASS
+ */
 public class Employee {
 	private final String name;
 	private final double height;
@@ -36,4 +39,4 @@ public class Employee {
 		return age;
 	}
 
-}
+}// End of class

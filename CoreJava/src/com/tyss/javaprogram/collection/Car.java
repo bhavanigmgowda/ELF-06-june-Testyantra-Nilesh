@@ -1,5 +1,7 @@
 package com.tyss.javaprogram.collection;
-
+/*
+ * comapable interface
+ */
 public class Car implements Comparable<Car> {
        String name;
        String brand;

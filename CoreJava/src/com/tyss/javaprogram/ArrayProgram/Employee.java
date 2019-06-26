@@ -1,5 +1,7 @@
-package com.tyss.javaprogram.ArrayProgram;
-
+package com.tyss.javaprogram.arrayprogram;
+/*
+ * bean class
+ */
 public class Employee   {
     
 	private String name;

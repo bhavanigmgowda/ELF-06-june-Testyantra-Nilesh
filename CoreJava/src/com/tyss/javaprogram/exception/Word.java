@@ -1,5 +1,7 @@
 package com.tyss.javaprogram.exception;
+import lombok.extern.java.Log;
 
+@Log
 public class Word {
 	
 	String name="Ron";
@@ -7,7 +9,7 @@ public class Word {
     {
     	if(name.length()>=5)
     	{
-    		System.out.println("word length greater than 5");
+    		log.info(""+"word length greater than 5");
     	}
     	else
     	{

@@ -1,8 +1,9 @@
 package com.tyss.javaprogram.collection;
 
-import java.util.ArrayList;
 import java.util.TreeSet;
 
+import lombok.extern.java.Log;
+@Log
 public class TreeSetStudent {
 	
 	public static void main(String[] args) {
@@ -31,9 +32,9 @@ public class TreeSetStudent {
 	     
 	     
 	     for (Student student : ar) {
-			System.out.println(student.name);
-			System.out.println(student.id);
-			System.out.println(student.percentage);
+			log.info(""+student.name);
+			log.info(""+student.id);
+			log.info(""+student.percentage);
 		}
 	     
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import lombok.extern.java.Log;
 
 @Log
-public class Arraytest {
+public class ArrayTest {
 
 	public static void main(String[] args) {
 		int a[] = { 5, 6, 2, 1, 4 };

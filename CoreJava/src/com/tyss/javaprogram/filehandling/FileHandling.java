@@ -5,18 +5,19 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 
 import org.apache.commons.io.FileUtils;
+import lombok.extern.java.Log;
 
+@Log
 public class FileHandling {
 
 	public static void main(String[] args) {
 		try {
 			FileUtils.writeStringToFile(new File("MyFile1.txt"), "This is my file !!",Charset.defaultCharset());
-			System.out.println("file is created");
+			log.info("file is created");
 			
 		
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.severe(""+e);
 		}
 	}// End of main
 

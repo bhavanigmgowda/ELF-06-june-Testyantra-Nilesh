@@ -1,11 +1,14 @@
 package com.tyss.javaprogram.collection;
 
 import java.util.ArrayList;
-
+import lombok.extern.java.Log;
+@Log
 public class Test2 {
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		  
-		  ArrayList al=new ArrayList();
+		  @SuppressWarnings("rawtypes")
+		ArrayList al=new ArrayList();
 		  al.add(15);
 		  al.add(52.2);
 		  al.add('A');
@@ -13,9 +16,9 @@ public class Test2 {
 		  al.add("abc");
 		  al.add("78");
 		  
-		  System.out.println(al);
+		  log.info(""+al);
 		  for (Object object : al) {
-			  System.out.print(object+" ");
+			  log.info(""+object+" ");
 		}
 		  
 	}

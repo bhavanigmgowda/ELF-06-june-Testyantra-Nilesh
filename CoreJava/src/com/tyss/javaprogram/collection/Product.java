@@ -19,8 +19,5 @@ public class Product implements Comparable<Product> {
 	 * if (this.rating < o.rating) { return 1; } else if (this.rating > o.rating) {
 	 * return -1; } else { return 0; } }
 	 */
-	
-	
-	
-	
+
 }

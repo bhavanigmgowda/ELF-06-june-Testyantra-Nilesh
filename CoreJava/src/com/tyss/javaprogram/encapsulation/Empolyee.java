@@ -1,16 +1,16 @@
 package com.tyss.javaprogram.encapsulation;
 
 public class Empolyee {
-	private String Name;
+	private String name;
 	private int age;
 	private char gender;
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public int getAge() {
@@ -33,7 +33,7 @@ public class Empolyee {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + age;
 		result = prime * result + gender;
 		return result;
@@ -48,10 +48,10 @@ public class Empolyee {
 		if (getClass() != obj.getClass())
 			return false;
 		Empolyee other = (Empolyee) obj;
-		if (Name == null) {
-			if (other.Name != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!Name.equals(other.Name))
+		} else if (!name.equals(other.name))
 			return false;
 		if (age != other.age)
 			return false;
@@ -62,7 +62,7 @@ public class Empolyee {
 
 	@Override
 	public String toString() {
-		return "Empolyee [Name=" + Name + ", age=" + age + ", gender=" + gender + "]";
+		return "Empolyee [Name=" + name + ", age=" + age + ", gender=" + gender + "]";
 	}
 
 	

@@ -1,8 +1,8 @@
 package com.tyss.javaprogram.collection;
 
 public class Student implements Comparable<Student>  {
-     public static double per;
-	String name;
+     public static double PER;
+	public String name;
      int id;
      double percentage;
 	/* 
@@ -37,9 +37,8 @@ public class Student implements Comparable<Student>  {
  	public int compareTo(Student o) {
 		  String a=this.name;
 		  String b=o.name;
-		  
-    	 int k=a.compareTo(b);
-    	 return k;
+
+    	 return a.compareTo(b);
  		
  		    
  			

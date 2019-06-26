@@ -2,6 +2,8 @@ package com.tyss.javaprogram.collection;
 
 import java.util.TreeSet;
 
+import lombok.extern.java.Log;
+@Log
 public class ProductMain {
 	
 	public static void main(String[] args) {
@@ -35,9 +37,9 @@ public class ProductMain {
 		
 		for (Product product : ts) 
 		{
-			System.out.println("name ="+product.name);
-			System.out.println("cost ="+product.cost);
-			System.out.println("rating ="+product.rating);
+			log.info("name ="+product.name);
+			log.info("cost ="+product.cost);
+			log.info("rating ="+product.rating);
 		}
 		
 	}

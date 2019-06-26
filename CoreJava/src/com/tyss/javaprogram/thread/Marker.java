@@ -13,7 +13,6 @@ public class Marker implements Runnable {
 	          try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				log.severe(""+e);
 			}
 		}

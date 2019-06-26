@@ -5,17 +5,18 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 
 import org.apache.commons.io.FileUtils;
+import lombok.extern.java.Log;
 
+@Log
 public class ReadFile {
-    public static void main(String[] args) {
-		
-    	try {
-			String File= FileUtils.readFileToString(new File("MyFile.txt"));
-                        FileUtils.readFileToString(new File("MyFile.txt"), Charset.defaultCharset());
-			System.out.println(File);
+	public static void main(String[] args) {
+
+		try {
+
+			String file = FileUtils.readFileToString(new File("MyFile.txt"), Charset.defaultCharset());
+			log.severe(file);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.severe("" + e);
 		}
 	}
 }

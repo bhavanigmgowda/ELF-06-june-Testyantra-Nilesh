@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
+import lombok.extern.java.Log;
+@Log
 public class ArrayString {
    public static void main(String[] args) {
 	
@@ -19,16 +21,16 @@ public class ArrayString {
 	    while(itr.hasNext())
 	    {
 	    	String s=itr.next();
-	    	System.out.println(s+" ");
+	    	log.info(s+" ");
 	    			
 	    }
 	    
-	    System.out.println("list itrator backword");
+	    log.info("list itrator backword");
 	    ListIterator<String> litr=al.listIterator(al.size());
 	    
 	    while(litr.hasPrevious())
 	    {
-	    	System.out.println(litr.previous());
+	    	log.info(litr.previous());
 	    }
 	    
 	    

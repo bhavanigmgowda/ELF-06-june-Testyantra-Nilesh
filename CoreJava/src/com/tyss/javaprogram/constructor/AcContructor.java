@@ -1,12 +1,13 @@
 package com.tyss.javaprogram.constructor;
-
+import lombok.extern.java.Log;
+@Log
 public class AcContructor {
 	AcContructor(int a)
       {
-         System.out.println("taking int parameter");	  
+         log.info(""+"taking int parameter");	  
       }
 	AcContructor(double d)
 	{
-		System.out.println("taking double parameter");
+		log.info(""+"taking double parameter");
 	}
 }

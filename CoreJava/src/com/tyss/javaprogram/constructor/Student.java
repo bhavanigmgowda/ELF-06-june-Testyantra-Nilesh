@@ -1,5 +1,6 @@
 package com.tyss.javaprogram.constructor;
-
+import lombok.extern.java.Log;
+@Log
 public class Student {
 	String name;
 	int age;
@@ -12,6 +13,6 @@ public class Student {
     }
     void a()
     {
-    	System.out.println("name="+name +"\nage= "+age+"\npercent= "+per);
+    	log.info(""+"name="+name +"\nage= "+age+"\npercent= "+per);
     }
 }

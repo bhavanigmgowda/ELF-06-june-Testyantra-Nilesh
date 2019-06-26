@@ -1,7 +1,8 @@
 package com.tyss.javaprogram.collection;
 
 import java.util.ArrayList;
-
+import lombok.extern.java.Log;
+@Log
 public class Test10 {
 	 public static void main(String[] args) {
 			
@@ -12,11 +13,11 @@ public class Test10 {
 		  arr.add(2.4);
 		  arr.add(3.6);
 		  
-		  System.out.println("before----------> "+arr);
+		  log.info(""+"before----------> "+arr);
 		  
 		  arr.add(3,69.5);
 		  
-		  System.out.println("after------>"+arr);
+		  log.info(""+"after------>"+arr);
 		  
 }
 }

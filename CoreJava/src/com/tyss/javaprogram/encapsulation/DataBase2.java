@@ -1,10 +1,11 @@
 package com.tyss.javaprogram.encapsulation;
-
+import lombok.extern.java.Log;
+@Log
 public class DataBase2 {
 	void getInfo(Empolyee e)
 	{
-		System.out.println("Name "+e.getName());
-		System.out.println("Gender "+e.getGender());
-		System.out.println("Age ="+e.getAge());
+		log.info(""+""+"Name "+e.getName());
+		log.info(""+""+"Gender "+e.getGender());
+		log.info(""+""+"Age ="+e.getAge());
 	}
 }

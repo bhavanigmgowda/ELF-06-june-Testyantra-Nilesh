@@ -2,6 +2,8 @@ package com.tyss.javaprogram.collection;
 
 import java.util.ArrayList;
 
+import lombok.extern.java.Log;
+@Log
 public class StudentArrayList {
   
 	
@@ -34,9 +36,9 @@ public class StudentArrayList {
 	     {
 		       Student s=ar.get(i);
 		      
-		       System.out.println("name "+s.name);
-		       System.out.println("id "+s.id);
-		       System.out.println("percentage "+s.percentage);
+		       log.info("name "+s.name);
+		       log.info("id "+s.id);
+		       log.info("percentage "+s.percentage);
 		}
 	     
 	}

@@ -5,7 +5,7 @@ import java.util.Date;
 public class EmployeeBean {
 	private int id;
 	private String name;
-	private String Deparment;
+	private String deparment;
 	private double salary;
 	private int age;
 	private Date date;
@@ -28,11 +28,11 @@ public class EmployeeBean {
 	}
 
 	public String getDeparment() {
-		return Deparment;
+		return deparment;
 	}
 
 	public void setDeparment(String deparment) {
-		Deparment = deparment;
+		this.deparment = deparment;
 	}
 
 	public double getSalary() {
@@ -64,12 +64,12 @@ public class EmployeeBean {
 	}
 
 	public void setGender(String gender) {
-		gender = gender;
+		this.gender = gender;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeBean [id=" + id + ", name=" + name + ", Deparment=" + Deparment + ", salary=" + salary
+		return "EmployeeBean [id=" + id + ", name=" + name + ", Deparment=" + deparment + ", salary=" + salary
 				+ ", age=" + age + ", date=" + date + ", Gender=" + gender + "]";
 	}
 	

@@ -1,28 +1,27 @@
 package com.tyss.javaprogram.exception;
 
+import lombok.extern.java.Log;
+
+@Log
 public class ExceptionEx {
 	public static void main(String[] args) {
 
 		try {
-			int i = 20 /5;
-			String a = null;
-			System.out.println(a.length());
-			String no="20.5";
-			int number=Integer.parseInt(no);
-			
+			int i = 20 / 5;
+			log.info("" + i);
+			String a = "abc";
+			log.info("" + a.length());
+			int number = Integer.parseInt("20.5");
+			log.info("" + number);
 
 		} catch (ArithmeticException e) {
-		     System.out.println("number not divide by zero");
-		}
-		catch(NullPointerException e)
-		{
-			System.out.println("pointing towards null object");
-		}
-		catch (NumberFormatException e) {
-       	      System.out.println("check parsing and correct your parsing method");	
-		}
-		catch (Exception e) {
-    	   System.out.println("genral Exception");	
+			log.info("" + "number not divide by zero");
+		} catch (NullPointerException e) {
+			log.info("" + "pointing towards null object");
+		} catch (NumberFormatException e) {
+			log.info("" + "check parsing and correct your parsing method");
+		} catch (Exception e) {
+			log.info("" + "genral Exception");
 		}
 	}
 }

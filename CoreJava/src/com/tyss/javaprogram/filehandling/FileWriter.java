@@ -3,7 +3,9 @@ package com.tyss.javaprogram.filehandling;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import lombok.extern.java.Log;
 
+@Log
 public class FileWriter {
    public static void main(String[] args) {
 	 
@@ -12,15 +14,13 @@ public class FileWriter {
 		int i;
 		while((i=fr.read())!=-1)
 		{
-			System.out.print((char)i);
+			log.info(""+((char)i));
 		}
 		fr.close();
 	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		log.info(""+e);
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		log.info(""+e);
 	}
 	   
 }

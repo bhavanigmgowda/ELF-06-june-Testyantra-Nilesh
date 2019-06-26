@@ -1,10 +1,11 @@
 package com.tyss.javaprogram.encapsulation;
-
+import lombok.extern.java.Log;
+@Log
 public class Db1 {
       void data(Person p)
       {
-    	  System.out.println("data saved in db1");
-    	  System.out.println(p.getName());
-    	 System.out.println(p.getAge());
+    	  log.info(""+"data saved in db1");
+    	  log.info(""+p.getName());
+    	 log.info(""+p.getAge());
       }
 }

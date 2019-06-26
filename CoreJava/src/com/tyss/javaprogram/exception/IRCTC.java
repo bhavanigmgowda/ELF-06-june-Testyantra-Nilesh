@@ -1,16 +1,20 @@
 package com.tyss.javaprogram.exception;
+import lombok.extern.java.Log;
 
+@Log
 public class IRCTC {
 	void checkamount() {
 
-		System.out.println("check amount");
+		log.info(""+"check amount");
 		try {
-			int i = 500 / 0;
+			int d=0;
+			int i = 500 /d;
+			log.info(""+i);
 		} catch (Exception e) {
-			System.out.println("exception in Irctc");
+			log.info(""+"exception in Irctc");
 			throw e;
 		}
 
-		System.out.println("amount checked");
+		log.info(""+"amount checked");
 	}
 }
