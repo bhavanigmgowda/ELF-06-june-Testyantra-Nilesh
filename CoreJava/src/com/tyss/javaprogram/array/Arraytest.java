@@ -1,5 +1,6 @@
 package com.tyss.javaprogram.array;
 
+
 import java.util.Scanner;
 
 import lombok.extern.java.Log;
