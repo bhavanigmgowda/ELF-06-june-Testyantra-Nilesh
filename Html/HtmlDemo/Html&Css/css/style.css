@@ -1,0 +1,82 @@
+.heading
+{
+    color: azure;
+    background: orange;
+  
+}
+}
+#paragraph
+{
+    padding: 20px;
+    background: lightblue;
+    font-family: 'Pacifico', cursive;
+    font-style: italic;
+    font-size: 1em; 
+    font-weight: bolder;
+    letter-spacing: 12;
+    text-shadow: 2px 2px greenyellow;
+
+    text-indent: 100px;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color:gray;
+    -webkit-text-stroke-width: 2px;
+   
+
+}
+body{
+    background: antiquewhite;
+    padding: 0px;
+    margin: 0px;
+    background-image:linear-gradient(tobottom,red,green);
+}
+input[type="text"],input[type="password"]
+{
+    height: 40px;
+    width: 200px;
+    font-size: 15px;
+    display: block;
+
+}
+button[type="submit"]
+{
+    height: 40px;;
+    width: 200px;
+    font-size: 18px;
+    outline: 10px dotted  slategrey;
+}
+#box1
+{
+    border: 10px yellow;
+    
+    padding: 30px;
+
+}
+
+#inner1{
+
+   background:cornflowerblue;
+   float: left;
+   width: 40%;
+  
+  
+   border: 10px red;
+   box-shadow: 5px 5px 5px 8px black;
+   border-radius: 8px;
+}
+#inner2
+{
+
+    background:darkgoldenrod;
+  
+    width: 50%;
+   
+    border: 10px violet;
+    float: left;
+}
+img{
+    border: 5px solid lavender;
+    border-radius: 99%;
+    height: 150px;
+    margin:auto;
+    display: block;
+}

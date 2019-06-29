@@ -1,0 +1,61 @@
+body{
+     margin: 0px;
+
+}
+nav{
+     width: 100;
+     background: black;
+
+}
+ul{
+     margin: 0px;
+}
+li{
+     
+      display: inline;
+     
+}
+ul li a{
+     text-decoration: none;
+     font-size: 25px;
+     color: white;
+     padding: 30px;
+     display: inline-block;
+     
+
+}
+input{
+     width:250px;
+     height:40px;
+     margin: 40px;
+     border-radius: 15px;
+}
+input:focus{
+     width:250px;
+     height:40px;
+     margin: 40px;
+     border-radius: 15px;
+     color: blueviolet;
+     box-shadow: 0 0 10px 8px cyan;
+
+}
+button{
+     width:250px;
+     height:40px;
+     margin: 40px;
+     border-radius: 15px;
+}
+
+Button:focus{
+     width:250px;
+     height:40px;
+     margin: 40px;
+     border-radius: 15px;
+     color: blueviolet;
+     box-shadow: 0 0 10px 8px cyan;
+}
+
+p::selection{
+     background: cadetblue;
+     color: blue;
+}
