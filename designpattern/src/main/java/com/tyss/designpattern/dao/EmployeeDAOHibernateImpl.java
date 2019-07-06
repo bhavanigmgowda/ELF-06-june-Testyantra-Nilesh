@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.tyss.designpattern.bean.EmployeeInfoBean;
+import com.tyss.designpattern.hibernateutil.HibernateUtil;
 
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
@@ -22,18 +24,67 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
 	public EmployeeInfoBean getEmployeeInfo(int id) {
-		Configuration cfg=new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		cfg.addAnnotatedClass(EmployeeInfoBean.class);
-		
-		SessionFactory factory=cfg.buildSessionFactory();
-		Session session=factory.openSession();
-		
-		EmployeeInfoBean bean=session.get(EmployeeInfoBean.class,id);
+
+		Session session = HibernateUtil.openSession();
+
+		EmployeeInfoBean bean = session.get(EmployeeInfoBean.class, id);
 		session.close();
 		return bean;
-		
-	
+
 	}
 
-}
+	// save and update method
+	private boolean saveorUpdate(EmployeeInfoBean bean) {
+		Transaction txn = null;
+		
+		try {
+			Session session = HibernateUtil.openSession();
+			txn = session.beginTransaction();
+			session.saveOrUpdate(bean);
+			txn.commit();
+			return true;
+		} catch (Exception e) {
+			txn.rollback();
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	@Override
+	public boolean createEmployeeInfo(EmployeeInfoBean bean) {
+		return saveorUpdate(bean); // calling saveorUpdate()
+	}
+
+	@Override
+	public boolean updateEmployeeInfo(EmployeeInfoBean bean) {
+		return saveorUpdate(bean); // calling saveorUpdate()
+	}
+
+	@Override
+	public boolean deleteEmployeeInfo(int id) {
+		Transaction txn = null;
+		EmployeeInfoBean bean=new EmployeeInfoBean();
+		bean.setId(id);
+		try {
+			Session session = HibernateUtil.openSession();
+			txn = session.beginTransaction();
+			session.delete(bean);
+			txn.commit();
+			return true;
+		} catch (Exception e) {
+			txn.rollback();
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean deleteEmployeeInfo(String id) {
+		Session session = HibernateUtil.openSession();
+		session.delete(id, EmployeeInfoBean.class);
+
+		return true;
+	}
+
+}// End of class

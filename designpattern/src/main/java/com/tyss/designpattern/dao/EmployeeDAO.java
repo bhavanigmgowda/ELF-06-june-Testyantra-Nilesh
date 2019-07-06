@@ -9,4 +9,8 @@ public interface EmployeeDAO {
 	public ArrayList<EmployeeInfoBean> getAllEmployeeInfo();
 	public EmployeeInfoBean getEmployeeInfo(String args);
 	public EmployeeInfoBean getEmployeeInfo(int id);
+	boolean createEmployeeInfo(EmployeeInfoBean bean);
+	boolean updateEmployeeInfo(EmployeeInfoBean bean);
+	boolean deleteEmployeeInfo(int id);
+	boolean deleteEmployeeInfo(String id);
 }

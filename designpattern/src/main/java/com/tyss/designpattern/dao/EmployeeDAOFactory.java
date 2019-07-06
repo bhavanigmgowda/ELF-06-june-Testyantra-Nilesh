@@ -2,7 +2,7 @@ package com.tyss.designpattern.dao;
 
 public class EmployeeDAOFactory {
 
-	private static String dbIntractionType="jdbc";
+	private static String dbIntractionType="hibernate";
 	
 	private EmployeeDAOFactory()
 	{

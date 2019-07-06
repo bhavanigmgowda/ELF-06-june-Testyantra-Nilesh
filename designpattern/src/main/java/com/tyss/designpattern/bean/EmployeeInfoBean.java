@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-@Entity
+@Entity 
 @Table(name="employee_info")
 public class EmployeeInfoBean implements Serializable {
     @Id
