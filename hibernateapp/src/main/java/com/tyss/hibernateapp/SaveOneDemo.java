@@ -44,7 +44,7 @@ public class SaveOneDemo {
 		
 
 		Transaction transaction=session.beginTransaction();  
-		session.save(bean);
+		session.saveOrUpdate(bean);
 		transaction.commit();
 		session.close();
 }

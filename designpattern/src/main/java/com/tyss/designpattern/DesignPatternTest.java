@@ -2,6 +2,7 @@ package com.tyss.designpattern;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.tyss.designpattern.bean.EmployeeInfoBean;
 import com.tyss.designpattern.dao.EmployeeDAO;
@@ -18,19 +19,35 @@ import lombok.extern.java.Log;
 @Log
 public class DesignPatternTest {
 	public static void main(String[] args) {
-		EmployeeDAO dao=EmployeeDAOFactory.getIntance();
-		//printInfo(dao.getEmployeeInfo(1));
-		//printInfo(dao.getEmployeeInfo("1"));
-		
-		//EmployeeDAO daoone=EmployeeDAOFactory.getIntance();
-	
-		//printInfo(dao.getEmployeeInfo("1"));
-		
-		
-		
-		//save operation
-		
-		EmployeeInfoBean bean=new EmployeeInfoBean();
+		EmployeeDAO dao = EmployeeDAOFactory.getIntance();
+		// printInfo(dao.getEmployeeInfo(1));
+		// printInfo(dao.getEmployeeInfo("1"));
+
+		// EmployeeDAO daoone=EmployeeDAOFactory.getIntance();
+
+		// printInfo(dao.getEmployeeInfo("1"));
+
+		List<EmployeeInfoBean> beans = dao.getAllEmployeeInfo();
+
+		for (EmployeeInfoBean employeeInfoBean : beans) {
+			log.info("Id " + employeeInfoBean.getId());
+			log.info("Name " + employeeInfoBean.getName());
+			log.info("Age " + employeeInfoBean.getAge());
+			log.info("Designation " + employeeInfoBean.getDesignation());
+			log.info("Email" + employeeInfoBean.getEmail());
+			log.info("Gender " + employeeInfoBean.getGender());
+			log.info("Phone " + employeeInfoBean.getPhone());
+			log.info("Salary " + employeeInfoBean.getSalary());
+			log.info("Dept_ID " + employeeInfoBean.getDept_ID());
+			log.info("Manager_ID " + employeeInfoBean.getManager_ID());
+			log.info("Dob" + employeeInfoBean.getDob());
+			log.info("Joining_date " + employeeInfoBean.getJoining_date());
+
+		}
+
+		// save operation
+
+		EmployeeInfoBean bean = new EmployeeInfoBean();
 		bean.setId(103);
 		bean.setName("Yash");
 		bean.setAge(29);
@@ -44,15 +61,11 @@ public class DesignPatternTest {
 		bean.setDept_ID(3);
 		bean.setManager_ID(4);
 		bean.setDob(new Date("1997/02/24"));
-		
-		
-		
-	//	log.info("Inserted the employee info ?"+ dao.createEmployeeInfo(bean));
-		
-		
-		
-		dao.deleteEmployeeInfo(105);
-		
+
+		// log.info("Inserted the employee info ?"+ dao.createEmployeeInfo(bean));
+
+		// dao.deleteEmployeeInfo(105);
+
 		/*
 		 * log.info("==========");
 		 * 
@@ -60,23 +73,21 @@ public class DesignPatternTest {
 		 * 
 		 * for (EmployeeInfoBean employeeInfoBean : beans) {
 		 * printInfo(employeeInfoBean); }
+		 * 
+		 * }// end of method
+		 * 
+		 * private static void printInfo( EmployeeInfoBean infoBean) { log.info("ID :" +
+		 * infoBean.getId()); log.info("NAME :" + infoBean.getName()); log.info("AGE :"
+		 * + infoBean.getAge()); log.info("GENDER :" + infoBean.getGender());
+		 * log.info("EMAIL :" + infoBean.getEmail()); log.info("PHONE :" +
+		 * infoBean.getPhone()); log.info("SALARY :" + infoBean.getSalary());
+		 * log.info("ACCOUNTNO :" + infoBean.getCcnt_no()); log.info("DOB :" +
+		 * infoBean.getDob()); log.info("JOININGDATE :" + infoBean.getJoining_date());
+		 * log.info("DEPARTMENT_ID :" + infoBean.getDept_ID()); log.info("MANAGER_ID :"
+		 * + infoBean.getManager_ID());
+		 * 
+		 * }
 		 */
-	}// end of method
-
-	private static void printInfo(EmployeeInfoBean infoBean) {
-		log.info("ID :" + infoBean.getId());
-		log.info("NAME :" + infoBean.getName());
-		log.info("AGE :" + infoBean.getAge());
-		log.info("GENDER :" + infoBean.getGender());
-		log.info("EMAIL :" + infoBean.getEmail());
-		log.info("PHONE :" + infoBean.getPhone());
-		log.info("SALARY :" + infoBean.getSalary());
-		log.info("ACCOUNTNO :" + infoBean.getCcnt_no());
-		log.info("DOB :" + infoBean.getDob());
-		log.info("JOININGDATE :" + infoBean.getJoining_date());
-		log.info("DEPARTMENT_ID :" + infoBean.getDept_ID());
-		log.info("MANAGER_ID :" + infoBean.getManager_ID());
-
 	}
 
 }// end of class

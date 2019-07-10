@@ -1,4 +1,4 @@
-package com.tyss.hibernateapp.dto;
+package com.tyss.hibernateapp.cache;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,15 @@ import javax.persistence.Table;
 @Table(name="employee_info")
 public class EmployeeInfoBean implements Serializable {
 
-	  @Id
+	  @Override
+	public String toString() {
+		return "EmployeeInfoBean [id=" + id + ", age=" + age + ", name=" + name + ", gender=" + gender + ", salary="
+				+ salary + ", phone=" + phone + ", email=" + email + ", designation=" + designation + ", dob=" + dob
+				+ ", account_no=" + account_no + ", joining_date=" + joining_date + ", dept_ID=" + dept_ID
+				+ ", manager_ID=" + manager_ID + "]";
+	}
+
+	@Id
 	    @Column(name="ID")
 		private int id;
 	    @Column(name="AGE")

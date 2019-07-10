@@ -1,11 +1,13 @@
 package com.tyss.designpattern.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.tyss.designpattern.bean.EmployeeInfoBean;
 import com.tyss.designpattern.hibernateutil.HibernateUtil;
@@ -13,8 +15,12 @@ import com.tyss.designpattern.hibernateutil.HibernateUtil;
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
-	public ArrayList<EmployeeInfoBean> getAllEmployeeInfo() {
-		return null;
+	public List<EmployeeInfoBean> getAllEmployeeInfo() {
+		Session session = HibernateUtil.openSession();
+		String hql = "from EmployeeInfoBean";
+		Query query = session.createQuery(hql);
+	    return query.list();
+
 	}
 
 	@Override

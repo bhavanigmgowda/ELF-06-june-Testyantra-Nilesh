@@ -1,4 +1,4 @@
-package com.tyss.hibernateapp.dto;
+package com.tyss.hibernateapp.awsrds;
 
 import java.io.Serializable;
 import java.util.Date;
