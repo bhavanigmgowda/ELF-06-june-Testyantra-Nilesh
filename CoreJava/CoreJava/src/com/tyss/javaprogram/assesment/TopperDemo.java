@@ -17,7 +17,7 @@ public class TopperDemo {
 	  
 	  
 		   Predicate<Student> s=(i)->{
-			   if(i.gender=="F" )
+			   if(i.gender.equals("F") )
 			   {
 				   return true;
 			   }

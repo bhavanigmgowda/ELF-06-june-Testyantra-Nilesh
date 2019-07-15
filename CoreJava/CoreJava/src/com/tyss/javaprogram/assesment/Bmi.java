@@ -9,18 +9,15 @@ public class Bmi {
      
 	 Double i=22.1;
 	 
-	 Predicate<Double> predicate=(j)->{
-		 if(i>20.1)
-		 {
-	        return true;		 
-		 }
-		 else
-		 {
-			 return false;
-		 }
-	 };
-	 
-	 predicate.test(12.0);
+	 Predicate<Double> predicate=(j)->i>20.1;
+
+	 if(predicate.test(12.0)) {
+		 log.info("Normal");
+	 }
+	 else
+	 {
+		 log.info("UnderWeigth");
+	 }
 	 
 }
 }

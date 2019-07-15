@@ -6,10 +6,24 @@ public class Student {
 	String gender;
 	double ttlmarks;
 	double attendence;
-
-	public Student() {
+    int rollNumber;
+    double percent;
+	  public Student() {
 		super();
 	}
+	  
+	  
+	  
+
+	public Student(int rollNumber,String name, double percent) {
+		super();
+		this.name = name;
+		this.rollNumber = rollNumber;
+		this.percent = percent;
+	}
+
+
+
 
 	public Student(double attendence) {
 		super();
