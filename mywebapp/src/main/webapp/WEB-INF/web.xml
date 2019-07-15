@@ -5,16 +5,55 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
-  <servlet>
-  <servlet-name>MyFirstServelet</servlet-name>
-  <servlet-class>com.tyss.mywebapp.MyFirstServelet</servlet-class>
+     <context-param>
+        <param-name>movie</param-name>
+        <param-value>sholey</param-value>
+     </context-param>
   
+  <servlet>
+
+  <servlet-name>MyFirstServlet</servlet-name>
+  <servlet-class>com.tyss.mywebapp.servlets.MyFirstServlet</servlet-class>
+   <init-param>
+         <param-name>actor</param-name>
+         <param-value>gabbar Singh</param-value>
+     </init-param>
+  </servlet>
+  <servlet>
+  	<servlet-name>RedirectServlet</servlet-name>
+  	<display-name>RedirectServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.tyss.mywebapp.servlets.RedirectServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ForwardResquestServlet</servlet-name>
+  	<display-name>ForwardResquestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.tyss.mywebapp.servlets.ForwardResquestServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>IncludeServlet</servlet-name>
+  	<display-name>IncludeServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.tyss.mywebapp.servlets.IncludeServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-   <servlet-name>MyFirstServelet</servlet-name>
-   <url-pattern>/currentDate</url-pattern>
+  <servlet-name>MyFirstServlet</servlet-name>
+  <url-pattern>/currentDate</url-pattern>
   
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RedirectServlet</servlet-name>
+  	<url-pattern>/RedirectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ForwardResquestServlet</servlet-name>
+  	<url-pattern>/ForwardResquestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>IncludeServlet</servlet-name>
+  	<url-pattern>/IncludeServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>
