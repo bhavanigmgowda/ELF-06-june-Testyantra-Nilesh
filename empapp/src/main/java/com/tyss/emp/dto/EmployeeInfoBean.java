@@ -3,17 +3,34 @@ package com.tyss.emp.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
 
 
 @Entity
 @Table(name="employee_info")
-public class EmployeeInfoBean implements Serializable {
+public class EmployeeInfoBean implements Serializable  {
 	
-	  @Id
+	
+	  @OneToOne(cascade =CascadeType.ALL)
+	  @PrimaryKeyJoinColumn 
+	  private EmployeeOtherInfoBean otherInfo;
+	 
+	public EmployeeOtherInfoBean getOtherInfo() {
+		return otherInfo;
+	}
+
+	public void setOtherInfo(EmployeeOtherInfoBean otherInfo) {
+		this.otherInfo = otherInfo;
+	}
+
+	@Id
 	    @Column(name="ID")
 		private int id;
 	    @Column(name="AGE")
@@ -42,6 +59,8 @@ public class EmployeeInfoBean implements Serializable {
 		private int manager_ID;
 	    @Column(name="Password")
 	    private String password;
+	    
+	  
 
 		public String getPassword() {
 			return password;

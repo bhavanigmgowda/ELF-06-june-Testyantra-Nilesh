@@ -115,7 +115,7 @@ public class SearchEmployeeServlet extends HttpServlet {
 	 	        out.print("                                                                                                                                                   ");
 	 	        out.print("                           </div>                                                                                                                  ");
 	 	        out.print("                           <div class='col-md-2'>                                                                                                  ");
-	 	        out.print("                               <input type='submit' class='profile-edit-btn' name='btnAddMore' value='Logout' />                                   ");
+	 	        out.print("                             <a href='./logout'>  <input type='submit' class='profile-edit-btn' name='btnAddMore' value='Logout' /></a>                                  ");
 	 	        out.print("                           </div>                                                                                                                  ");
 	 	        out.print("                   </div>                                                                                                                          ");
 	 	        out.print("                                                                                                                                                   ");

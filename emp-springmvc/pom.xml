@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tyss</groupId>
-	<artifactId>empapp</artifactId>
+	<artifactId>emp-springmvc</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>empapp Maven Webapp</name>
+	<name>emp-springmvc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -15,6 +15,7 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -46,7 +47,7 @@
 			<version>5.1.27</version>
 		</dependency>
 
-
+	
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -61,6 +62,8 @@
 			<version>5.1.5.RELEASE</version>
 		</dependency>
 
+
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -69,9 +72,13 @@
 		</dependency>
 
 
+
+
 	</dependencies>
+
+
 	<build>
-		<finalName>empapp</finalName>
+		<finalName>emp-springmvc</finalName>
 	</build>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
