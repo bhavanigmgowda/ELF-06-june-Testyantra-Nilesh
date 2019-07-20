@@ -9,24 +9,24 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-        <form  action="./registration" method="post"  class="col-md-10 offset-1" style="background-color : rgb(236, 236, 114)">
+        <form  class="col-md-10 offset-1" style="background-color : rgb(236, 236, 114)">
                 <h3 style="text-align: center;padding: 20px;">Employee Information</h3>
                 <hr>   
             <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">ID</label>
-                    <input name="id"  type="text" class="form-control"  placeholder="Please Enter ID">
+                    <input name="id" type="text" class="form-control"  placeholder="Please Enter ID">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Account Number</label>
-                    <input name="accountNumber" type="text" class="form-control"  placeholder="Please EnterAccount Numberr ">
+                    <input name="account_no" type="text" class="form-control"  placeholder="Please EnterAccount Numberr ">
                   </div>
               
                 </div>
                 <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="inputEmail4">Name</label>
-                          <input  name="name" type="text" class="form-control"  placeholder="Please Enter Name">
+                          <input name="name" type="text" class="form-control"  placeholder="Please Enter Name">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="inputPassword4">Email Id</label>
@@ -46,7 +46,7 @@
                               
                               <label for="inputPassword4">Designation</label>
                           
-                              <input  name="designation" type="text" class="form-control"  placeholder="Please EnterDesignation">
+                              <input name="designation" type="text" class="form-control"  placeholder="Please EnterDesignation">
                             </div>
 
                            
@@ -54,9 +54,9 @@
                           </div>
                           <div class="form-row">
                                 <div class="form-group col-md-6">
-                                  <label  name="gender" for="inputEmail4">Gender</label><br>
+                                  <label for="inputEmail4">Gender</label><br>
                                   <select style="        width: 640.75px;height: 39.99px;" >
-                                      <option value="" disabled="disabled" selected="selected">Please select</option>
+                                      <option name="gender" value="" disabled="disabled" selected="selected">Please select</option>
                                     <option value="Male">Male</option>
                                       <option value="Female">Female</option>
                                      
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                   <label for="inputPassword4">Date Of Birth</label>
-                                  <input  name="dob" type="date" class="form-control"  placeholder="dd-mm-yyyy">
+                                  <input name="dob" type="date" class="form-control"  placeholder="dd-mm-yyyy">
                                 </div>
                                 
                               </div>
@@ -73,11 +73,11 @@
                               <div class="form-row">
                                     <div class="form-group col-md-6">
                                       <label for="inputEmail4">Salary</label>
-                                      <input  name="salary" type="text" class="form-control"  placeholder="Please EnterDesignation">
+                                      <input type="text" class="form-control"  placeholder="Please EnterDesignation">
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label for="inputPassword4">Department ID</label>
-                                      <input type="text" name="deptid" class="form-control"  placeholder="Please Enter Department ID ">
+                                      <input name="dept_ID" type="text" class="form-control"  placeholder="Please Enter Department ID ">
 
                                      
                                     </div>
@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                           <label for="inputPassword4">Manager ID</label>
-                                          <input name="managerid" type="text" class="form-control"  placeholder="Please Enter Manager ID ">
+                                          <input name="manager_ID"  type="text" class="form-control"  placeholder="Please Enter Manager ID ">
     
                                          
                                         </div>
@@ -98,135 +98,535 @@
                                       <div class="form-row">
                                           <div class="form-group col-md-6">
                                               <label for="inputPassword4">Date Of Joining</label>
-                                              <input name="dateofjoining" type="date" class="form-control"  placeholder="dd-mm-yyyy">
+                                              <input type="date" class="form-control"  placeholder="dd-mm-yyyy">
+                                            </div>
+
+                                            <div>
+                                                <label type="password" for="inputEmail4">Password</label>
+                                                <input name="password" type="text" class="form-control"  placeholder="Please your Password">
+
                                             </div>
                                            
                                         </div>
 
-
-                                   
-
-
                                     </div>
+
+                                    <h3 style="text-align: center;padding: 20px;">Employee Other Information</h3>
+                                    <hr>   
+                                <div class="form-row">
+                
+                                      <div class="form-group col-md-4">
+                                        <label for="inputPassword4">Emergency Contact Name</label>
+                                        <input name="otherInfo.emergency_contact_name" type="text" class="form-control"  placeholder="Please Enter Emergency Contact Number ">
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                            <label for="inputAddress">Mother Name</label>
+                                            <input name="otherInfo.mother_name" type="text" class="form-control" id="inputAddress" placeholder="Please Enter Mother Name">
+                                          </div>
+                                    </div>
+                    
+                                    <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                              <label for="inputEmail4">Pan Number</label>
+                                              <input name="otherInfo.pan" type="text" class="form-control"  placeholder="Please Enter Pan Number">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                              <label for="inputPassword4">Emergency Contact Number</label>
+                                              <input name="otherInfo.emergency_contact_number" type="text" class="form-control"  placeholder="Please Enter Emergency Contact Number ">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                  <label for="inputAddress">Spouse Name</label>
+                                                  <input name="otherInfo.spouse_NM" type="text" class="form-control" id="inputAddress" placeholder="Please Enter Spouse Name">
+                                                </div>
+                                          </div>
+                                  
+                                          <div class="form-row">
+                                            <div  class="form-group col-md-4">
+                                                <label for="inputEmail4">Married Status</label><br>
+                                                <select name="otherInfo.ismarried" style="    width: 408.75px;height: 37.99px;">
+                                                    <option value="Married">Married</option>
+                                                    <option value="Single">Single</option>
+                                                  </select>
+                                           
+                                            </div>
+                                             
+                                                <div class="form-group col-md-4">
+                                                  
+                                                  <label for="inputPassword4">Nationality</label>
+                                              
+                                                <select name="otherInfo.nationality" style="    width: 408.75px;height: 37.99px;" >
+                                                    <option value="" disabled="disabled" selected="selected">Please select</option>
+                                                  <option value="Indian">Indian</option>
+                                                    <option value="Other">Other</option>
+                                                  </select>
+                                                </div>
+                    
+                                                <div class="form-group col-md-4">
+                                                      <label for="inputAddress">Passport Number</label>
+                                                      <input name="otherInfo.passport" type="text" class="form-control" id="inputAddress" placeholder="please enter Passport Number">
+                                                    </div>
+                                             
+                                              </div>
+                                              <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                      <label for="inputEmail4">Blood Group</label>
+                                                      <select name="otherInfo.blood_grp" style="    width: 408.75px;height: 37.99px;" >
+                                                          <option value="" disabled="disabled" selected="selected">Please select</option>
+                                                        <option value="A+">A+</option>
+                                                          <option value="B+">B+</option>
+                                                          <option value="O+">O+</option>
+                                                          <option value="AB+">AB+</option>
+                                                          <option value="A-">A-</option>
+                                                          <option value="B-">B-</option>
+                                                          <option value="O-">O-</option>
+                                                          <option value="AB-">AB-</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                      <label for="inputPassword4">Religion</label>
+                                                      <select name="otherInfo.religion" style="    width: 408.75px;height: 37.99px;" >
+                                                        <option value="" disabled="disabled" selected="selected">Please select</option>
+                                                      <option value="Hinduism">Hinduism</option>
+                                                        <option value="Islam">Islam</option>
+                                                        <option value="Sikhism">Sikhism </option>
+                                                        <option value="Buddhism">Buddhism</option>
+                                                        <option value="Jainism">Jainism</option>
+                                                        <option value="Other religions ">Other religions </option>
+                    
+                                                        </option>
+                                                      
+                                                      </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                          <label for="inputAddress">Aadhar Number</label>
+                                                          <input name="otherInfo.adhar" type="text" class="form-control" id="inputAddress" placeholder="Please Enter  Aadhar Number">
+                                                        </div>
+                                                  </div>
+                    
                                     
-                                    
-                        <h3 style="text-align: center;padding: 20px;">Employee Other Information</h3>
+                                                  <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                          <label for="inputEmail4">Physically Challenged?</label>
+                                                          <select name="otherInfo.isChallenged" style="    width: 408.75px;height: 37.99px;" >
+                                                            <option value="" disabled="disabled" selected="selected">Please select</option>
+                                                          <option value="YES">YES</option>
+                                                            <option value="NO">NO</option>
+                                                          </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                          <label for="inputPassword4">Father Name</label>
+                                                          <input name="otherInfo.father_name" style="width: 408.75px;height: 37.99px;" type="text" class="form-control"  placeholder="Please Enter Father Name ">
+                    
+                                                         
+                                                        </div>
+                                                        
+                                                        </div>
+                                                       <!--Employee Address --> 
+
+                                <h3 style="text-align: center;padding: 20px;">Employee Address Info</h3>
                 <hr>   
             <div class="form-row">
                   
-                  <div class="form-group col-md-4">
-                    <label for="inputPassword4">Emergency Contact Name</label>
-                    <input name="contactname" type="text" class="form-control"  placeholder="Please Enter Emergency Contact Number ">
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">City</label>
+                    <input name="addressInfoBean[0].city" type="text" class="form-control"  placeholder="Please Enter City ">
                   </div>
-                  <div class="form-group col-md-4">
-                        <label for="inputAddress">Mother Name</label>
-                        <input name="mothername" type="text" class="form-control" id="inputAddress" placeholder="Please Enter Mother Name">
-                      </div>
+              
                 </div>
-
                 <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <label for="inputEmail4">Pan Number</label>
-                          <input name="pannumber" type="text" class="form-control"  placeholder="Please Enter Pan Number">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">Address type</label>
+                          <select name="addressInfoBean[0].addressPkBean.addressType" required style=" width: 640.75px;height: 39.99px;" >
+                            <option value="" disabled="disabled" selected="selected">Select-one</option>
+                          <option value="Permanent">Permanent</option>
+                            <option value="Female">Tempory</option>
+                           </select>
+                         </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">State</label>
+                          <input name="addressInfoBean[0].state" type="email" class="form-control"  placeholder=" Enter State ">
                         </div>
-                        <div class="form-group col-md-4">
-                          <label for="inputPassword4">Emergency Contact Number</label>
-                          <input name="contactnumber" type="text" class="form-control"  placeholder="Please Enter Emergency Contact Number ">
-                        </div>
-                        <div class="form-group col-md-4">
-                              <label for="inputAddress">Spouse Name</label>
-                              <input name="spousename"  type="text" class="form-control" id="inputAddress" placeholder="Please Enter Spouse Name">
-                            </div>
+                      
                       </div>
               
                       <div class="form-row">
-                        <div  class="form-group col-md-4">
-                            <label for="inputEmail4">Married Status</label><br>
-                            <select  name="ismarried" style="    width: 408.75px;height: 37.99px;">
-                                <option value="Married">Married</option>
-                                <option value="Single">Single</option>
-                              </select>
+                        <div  class="form-group col-md-6">
+                            <label for="inputEmail4">Address1</label><br>
+                            <input name="addressInfoBean[0].address1" type="text" class="form-control"  placeholder=" Enter Address1">
                        
                         </div>
                          
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                               
-                              <label for="inputPassword4">Nationality</label>
+                              <label for="inputPassword4">Country</label>
                           
-                            <select style=""  name="nationality"  width: 408.75px;height: 37.99px;" >
-                                <option value="" disabled="disabled" selected="selected">Please select</option>
-                              <option value="Indian">Indian</option>
-                                <option value="Other">Other</option>
-                              </select>
+                              <input name="addressInfoBean[0].country" type="text" class="form-control"  placeholder="Enter Country">
                             </div>
 
-                            <div class="form-group col-md-4">
-                                  <label for="inputAddress">Passport Number</label>
-                                  <input name="passport" type="text" class="form-control" id="inputAddress" placeholder="please enter Passport Number">
-                                </div>
+                           
                          
                           </div>
                           <div class="form-row">
-                                <div class="form-group col-md-4">
-                                  <label for="inputEmail4">Blood Group</label>
-                                  <select name="blood" style="    width: 408.75px;height: 37.99px;" >
-                                      <option value="" disabled="disabled" selected="selected">Please select</option>
-                                    <option value="A+">A+</option>
-                                      <option value="B+">B+</option>
-                                      <option value="O+">O+</option>
-                                      <option value="AB+">AB+</option>
-                                      <option value="A-">A-</option>
-                                      <option value="B-">B-</option>
-                                      <option value="O-">O-</option>
-                                      <option value="AB-">AB-</option>
-                                    </select>
+                                <div class="form-group col-md-6">
+                                  <label for="inputEmail4">Address2</label><br>
+                                  <input name="addressInfoBean[0].address2" type="text" class="form-control"  placeholder=" Enter Address2">
                                 </div>
-                                <div class="form-group col-md-4">
-                                  <label for="inputPassword4">Religion</label>
-                                  <select name="religion" style="    width: 408.75px;height: 37.99px;" >
-                                    <option value="" disabled="disabled" selected="selected">Please select</option>
-                                  <option value="Hinduism">Hinduism</option>
-                                    <option value="Islam">Islam</option>
-                                    <option value="Sikhism">Sikhism </option>
-                                    <option value="Buddhism">Buddhism</option>
-                                    <option value="Jainism">Jainism</option>
-                                    <option value="Other religions ">Other religions </option>
-
-                                    </option>
-                                  
-                                  </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                      <label for="inputAddress">Aadhar Number</label>
-                                      <input name="aadhar" type="text" class="form-control" id="inputAddress" placeholder="Please Enter  Aadhar Number">
-                                    </div>
+                                <div class="form-group col-md-6">
+                                  <label for="Pincode">Pincode</label>
+                                  <input name="addressInfoBean[0].pincode" type="date" class="form-control"  placeholder="enter  Pincode">
+                                 </div>
+                                
+ 
                               </div>
 
                 
                               <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                      <label for="inputEmail4">Physically Challenged?</label>
-                                      <select name="challenged" style="    width: 408.75px;height: 37.99px;" >
-                                        <option value="" disabled="disabled" selected="selected">Please select</option>
-                                      <option value="YES">YES</option>
-                                        <option value="NO">NO</option>
-                                      </select>
+                                    <div class="form-group col-md-6">
+                                      <label for="inputEmail4">Landmark</label>
+                                      <input name="addressInfoBean[0].landmark" type="text" class="form-control"  placeholder="Please Enter Landmark">
                                     </div>
-                                    <div class="form-group col-md-4">
-                                      <label for="inputPassword4">Father Name</label>
-                                      <input name="fathername" type="text" class="form-control"  placeholder="Please Enter Father Name ">
 
+
+                                   
+                                  
+                              </div>
+
+                                    </div>
+                          
+                                    <h3 style="text-align: center;padding: 20px;">Employee Address INFO</h3>
+                                    <hr>   
+                                <div class="form-row">
+                        
+                                      <div class="form-group col-md-6">
+                                        <label for="inputPassword4">City</label>
+                                        <input type="text" class="form-control"  placeholder="Please Enter City ">
+                                      </div>
+                                  
+                                    </div>
+                                    <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                              <label for="inputEmail4">Address type</label>
+                                              <select style=" width: 640.75px;height: 39.99px;" >
+                                                <option value="" disabled="disabled" selected="selected">Select-one</option>
+                                              <option value="Permanent">Permanent</option>
+                                                <option value="Female">Tempory</option>
+                                               </select>
+                                             </div>
+                                            <div class="form-group col-md-6">
+                                              <label for="inputPassword4">State</label>
+                                              <input type="email" class="form-control"  placeholder=" Enter State ">
+                                            </div>
+                                          
+                                          </div>
+                                  
+                                          <div class="form-row">
+                                            <div  class="form-group col-md-6">
+                                                <label for="inputEmail4">Address1</label><br>
+                                                <input type="text" class="form-control"  placeholder=" Enter Address1">
+                                           
+                                            </div>
+                                             
+                                                <div class="form-group col-md-6">
+                                                  
+                                                  <label for="inputPassword4">Country</label>
+                                              
+                                                  <input type="text" class="form-control"  placeholder="Enter Country">
+                                                </div>
+                    
+                                               
+                                             
+                                              </div>
+                                              <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                      <label for="inputEmail4">Address2</label><br>
+                                                      <input type="text" class="form-control"  placeholder=" Enter Address2">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                      <label for="Pincode">Pincode</label>
+                                                      <input type="date" class="form-control"  placeholder="enter  Pincode">
+                                                     </div>
+                                                    
+                     
+                                                  </div>
+                    
+                                    
+                                                  <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                          <label for="inputEmail4">Landmark</label>
+                                                          <input type="text" class="form-control"  placeholder="Please Enter Landmark">
+                                                        </div>
+                    
+                    
+                                                       
+                                                      
+                                                  </div>
+                    
+                                                        </div> 
+                                                      
+                                                        
+                                      <!----Education -->                  
+                                
+                                      <h3  style="text-align: center ;padding: 20px;">Educational Details</h3>
+                                      <hr>
+                                
+                                     <div class="input-group flex-nowrap">
+                                       <div class="input-group-prepend">
+                                         <span class="input-group-text" id="addon-wrapping">Education Type</span>
+                                       </div>
+                                       <input requried type="text" class="form-control" placeholder="Enter Education Type" aria-label="Username" aria-describedby="addon-wrapping">
+                                     </div>
+                                     <br>
+                                     <div class="input-group flex-nowrap">
+                                       <div class="input-group-prepend">
+                                         <span class="input-group-text" id="addon-wrapping">Degree Type</span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Enter Degree Type" aria-label="Username" aria-describedby="addon-wrapping">
+                                     </div>
+                                     <br>
+                                     <div class="input-group flex-nowrap">
+                                         <div class="input-group-prepend">
+                                           <span class="input-group-text" id="addon-wrapping">Branch</span>
+                                         </div>
+                                         <input type="text" class="form-control" placeholder="Enter Branch" aria-label="Username" aria-describedby="addon-wrapping">
+                                       </div>
+                                       <br>
+                                       <div class="input-group flex-nowrap">
+                                         <div class="input-group-prepend">
+                                           <span class="input-group-text" id="addon-wrapping">Collage Name</span>
+                                         </div>
+                                         <input type="text" class="form-control" placeholder="Enter Collage Name" aria-label="Username" aria-describedby="addon-wrapping">
+                                       </div>
+                                       <br>
+                                       <div class="input-group flex-nowrap">
+                                         <div class="input-group-prepend">
+                                           <span class="input-group-text" id="addon-wrapping">University</span>
+                                         </div>
+                                         <input type="text" class="form-control" placeholder="Enter University" aria-label="Username" aria-describedby="addon-wrapping">
+                                       </div>
+                                       <br>
+                                     <div class="input-group flex-nowrap">
+                                       <div class="input-group-prepend">
+                                         <span class="input-group-text" id="addon-wrapping">Year Of Passing</span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="dd-mm-yyyy " aria-label="Username" aria-describedby="addon-wrapping">
+                                     </div>
+                                     <br>
+                             
+                                     <div class="input-group flex-nowrap">
+                                         <div class="input-group-prepend">
+                                           <span class="input-group-text" id="addon-wrapping">Percentage</span>
+                                         </div>
+                                         <input type="text" class="form-control" placeholder="Enter Percentage" aria-label="Username" aria-describedby="addon-wrapping">
+                                       </div>
+                                       <br>
+                                       <div class="input-group flex-nowrap">
+                                         <div class="input-group-prepend">
+                                           <span class="input-group-text" id="addon-wrapping">Location</span>
+                                         </div>
+                                         <input type="text" class="form-control" placeholder="Enter Location" aria-label="Username" aria-describedby="addon-wrapping">
+                                       </div>
+                             
+                                     <br>
+                             
                                      
                                     </div>
                                    
-                                    </div>              
-                                     <div style="text-align: center;padding: 0px 102px 20px;margin: 30px;"  class="btn-group" role="group" >  
-                                                <button style="width: 180px;height: 40px;" type="reset"  class="btn btn-outline-secondary">Reset</button>
-                                                <button  style="width: 180px;height: 40px;" type="submit"  class=" btn btn-outline-primary" >Submit</button>
-                                            
-                                              </div>
-                                    
-                                    
+                                   
+                                  </div>
+                                 
+                                
+                                </div>
+                               
+                               
+                             
+                             
+                              </div>
+                              <!------>
+                              <h3  style="text-align: center ;padding: 20px;">Educational Details</h3>
+                              <hr>
+                
+                             
+                             <div class="input-group flex-nowrap">
+                               <div class="input-group-prepend">
+                                 <span class="input-group-text" id="addon-wrapping">Education Type</span>
+                               </div>
+                               <input requried type="text" class="form-control" placeholder="Enter Education Type" aria-label="Username" aria-describedby="addon-wrapping">
+                             </div>
+                             <br>
+                             <div class="input-group flex-nowrap">
+                               <div class="input-group-prepend">
+                                 <span class="input-group-text" id="addon-wrapping">Degree Type</span>
+                               </div>
+                               <input type="text" class="form-control" placeholder="Enter Degree Type" aria-label="Username" aria-describedby="addon-wrapping">
+                             </div>
+                             <br>
+                             <div class="input-group flex-nowrap">
+                                 <div class="input-group-prepend">
+                                   <span class="input-group-text" id="addon-wrapping">Branch</span>
+                                 </div>
+                                 <input type="text" class="form-control" placeholder="Enter Branch" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                               <br>
+                               <div class="input-group flex-nowrap">
+                                 <div class="input-group-prepend">
+                                   <span class="input-group-text" id="addon-wrapping">Collage Name</span>
+                                 </div>
+                                 <input type="text" class="form-control" placeholder="Enter Collage Name" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                               <br>
+                               <div class="input-group flex-nowrap">
+                                 <div class="input-group-prepend">
+                                   <span class="input-group-text" id="addon-wrapping">University</span>
+                                 </div>
+                                 <input type="text" class="form-control" placeholder="Enter University" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                               <br>
+                             <div class="input-group flex-nowrap">
+                               <div class="input-group-prepend">
+                                 <span class="input-group-text" id="addon-wrapping">Year Of Passing</span>
+                               </div>
+                               <input type="text" class="form-control" placeholder="dd-mm-yyyy " aria-label="Username" aria-describedby="addon-wrapping">
+                             </div>
+                             <br>
+                     
+                             <div class="input-group flex-nowrap">
+                                 <div class="input-group-prepend">
+                                   <span class="input-group-text" id="addon-wrapping">Percentage</span>
+                                 </div>
+                                 <input type="text" class="form-control" placeholder="Enter Percentage" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                               <br>
+                               <div class="input-group flex-nowrap">
+                                 <div class="input-group-prepend">
+                                   <span class="input-group-text" id="addon-wrapping">Location</span>
+                                 </div>
+                                 <input type="text" class="form-control" placeholder="Enter Location" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                     
+                             <br>
+                     
+                            
+                            </div>
+                           
+                           
+                          </div>
+                         
+                        
+                        </div>
+                       
+                       
+                     
+                     
+                      </div>
+                     <!------Experience Info1-------->
+                     <h3  style="text-align: center ;padding: 20px;">Employee Experience Details</h3>
+                     <hr>
+                
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping">Company Name</span>
+                      </div>
+                      <input required type="text" class="form-control" placeholder="Enter Company Name" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping">Designation</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Enter Designation" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping">Joining Date</span>
+                      </div>
+                      <input type="Date" class="form-control" placeholder="dd-mm-yyyy" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="addon-wrapping">leaving Date</span>
+                        </div>
+                        <input type="Date" class="form-control" placeholder="dd-mm-yyyy" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
+            
+                    <br>
+                    <br>
+                   
+                   </div>
+                  
+                  
+                 </div>
+                
+               
+               </div>
+              
+              
+            
+            
+             </div>
+
+
+               <!--Experience 2-->
+
+
+               <h3  style="text-align: center ;padding: 20px;">Employee Experience Details</h3>
+               <hr>
+              
+              <br>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping">Company Name</span>
+                </div>
+                <input requried type="text" class="form-control" placeholder="Enter Company Name" aria-label="Username" aria-describedby="addon-wrapping">
+              </div>
+              <br>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping">Designation</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Enter Designation" aria-label="Username" aria-describedby="addon-wrapping">
+              </div>
+              <br>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping">Joining Date</span>
+                </div>
+                <input type="Date" class="form-control" placeholder="dd-mm-yyyy" aria-label="Username" aria-describedby="addon-wrapping">
+              </div>
+              <br>
+              <br>
+              <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">leaving Date</span>
+                  </div>
+                  <input type="Date" class="form-control" placeholder="dd-mm-yyyy" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+      
+              <br>
+              <br>
+              
+             </div>
+            
+            
+           </div>
+          
+         
+         </div>
+        
+        
+      
+      
+       </div>
+       <div style="text-align: center;padding: 0px 102px 20px;"  class="btn-group" role="group" >  
+        <button style="width: 150px" type="reset"  class="btn btn-outline-secondary">Reset</button>
+        <button  style="width: 150px" type="submit"  class=" btn btn-outline-primary" >Submit</button>
+        <br>
+        <br>
+      </div>
+
+
 
               </form>
 

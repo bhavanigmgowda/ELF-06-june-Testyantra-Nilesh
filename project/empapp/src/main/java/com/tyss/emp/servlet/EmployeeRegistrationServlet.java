@@ -29,12 +29,12 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			bean.setName(req.getParameter("name"));
 			bean.setAge(Integer.parseInt(req.getParameter("age")));
 			bean.setPhone(Long.parseLong(req.getParameter("phone")));
-			bean.setCcnt_no(Long.parseLong(req.getParameter("accountNumber")));
+			bean.setAccount_no(Long.parseLong(req.getParameter("accountNumber")));
 			bean.setDesignation("designation");
 			bean.setEmail("email");
 			bean.setPassword("password");
 			bean.setSalary(Double.parseDouble(req.getParameter("salary")));
-			bean.setManager_ID(Integer.parseInt(req.getParameter("managerid")));
+			//bean.setManager_ID(Integer.parseInt(req.getParameter("managerid")));
 
 			try {
 				bean.setDob(dateFormat.parse(req.getParameter("dob")));
@@ -43,7 +43,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			bean.setDept_ID(Integer.parseInt(req.getParameter("deptid")));
+			//bean.setD(Integer.parseInt(req.getParameter("deptid")));
 			bean.setGender("gender");
    
 			
@@ -61,7 +61,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			otherInfoBean.setSpouse_NM(req.getParameter("spousename"));
 			otherInfoBean.setReligion(req.getParameter("religion"));
 			otherInfoBean.setPassport(Long.parseLong(req.getParameter("passport")));
-			otherInfoBean.setId(Integer.parseInt(req.getParameter("id")));
+		//	otherInfoBean.setId(Integer.parseInt(req.getParameter("id")));
 			otherInfoBean.setPan(req.getParameter("pan"));
 			bean.setOtherInfo(otherInfoBean);
 			

@@ -96,7 +96,7 @@
                            <label for="">Gender : </label>
                            <%=result.getGender()%><br>
                            <label for="">Contanct-No : </label>
-                           <%=result.getCcnt_no()%><br>
+                           <%=result.getAccount_no()%><br>
                            <label for="">Phone : </label>
                            <%=result.getPhone()%><br>      
                              <label for="">Salary : </label>

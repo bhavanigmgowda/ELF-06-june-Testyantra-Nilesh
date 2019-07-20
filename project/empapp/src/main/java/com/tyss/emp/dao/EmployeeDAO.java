@@ -42,28 +42,38 @@ public class EmployeeDAO {
 
 	public EmployeeInfoBean validateUser(String Empid, String password) {
 
-		int id=Integer.parseInt(Empid);
-		
+		int id = Integer.parseInt(Empid);
+
 		Session session = HibernateUtil.openSession();
-		EmployeeInfoBean bean = session.get(EmployeeInfoBean.class,id);
+		EmployeeInfoBean bean = session.get(EmployeeInfoBean.class, id);
 
 		if (bean != null && bean.getPassword().equals(password)) {
 			return bean;
-		}else {
+		} else {
 			return null;
 		}
 
 	}
 	
+	
+	 public EmployeeInfoBean getEmployee(int managerId) {
+			
+		 Session session = HibernateUtil.openSession();
+		          
+		   return session.get(EmployeeInfoBean.class,managerId);	
+		 
+	 }
+	
+
 	public List<EmployeeInfoBean> searchEmployee(String Empid) {
-		//int id=Integer.parseInt(Empid);
-		
+		// int id=Integer.parseInt(Empid);
+
 		Session session = HibernateUtil.openSession();
-		String qry="from EmployeeInfoBean WHERE id like '"+Empid+"%'";
-		
-		   Query q = session.createQuery(qry);
-		       return q.list();
-	 
+		String qry = "from EmployeeInfoBean WHERE id like '" + Empid + "%'";
+
+		Query q = session.createQuery(qry);
+		return q.list();
+
 	}
 
 }

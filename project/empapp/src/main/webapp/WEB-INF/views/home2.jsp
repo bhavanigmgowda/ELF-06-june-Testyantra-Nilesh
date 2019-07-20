@@ -38,7 +38,10 @@ placeholder="Search" name="id" aria-labelSearch>
 <br> ID : ${bean.id}
 <br> Name ====> ${bean.name} 
 <br> Age ====>${bean.age }
-
+<br> Name ====> ${bean.gender} 
+<br> Name ====> ${bean.phone} 
+<br> Name ====> ${bean.dob} 
+<br> Age ====>${bean.joining_date }
 
 
 
