@@ -33,9 +33,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 		}
 	}
 	
-	
-	
-	
+
 	
 	@Override
 	public boolean createEmployeeinfo(EmployeeInfoBean bean) {
