@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -20,11 +21,22 @@ import lombok.Data;
 @Table(name = "employee_otherinfo")
 public class EmployeeOtherInfoBean implements Serializable {
 	//@XmlTransient
-	
-	@JsonIgnore
+	//@JsonIgnore
 	@Id
+	@Column(name="other_info_Id")
+	@GeneratedValue
+	private Integer otherInfoId;
+	
+	
+	public void setOtherInfoId(Integer otherInfoId) {
+		this.otherInfoId = otherInfoId;
+	}
+	public int getOtherInfoId() {
+		return otherInfoId;
+	}
+	@JsonIgnore
 	@OneToOne
-	@JoinColumn(name = "ID")
+	@JoinColumn(name = "ID",referencedColumnName ="ID",unique=true,nullable =false)
 	private EmployeeInfoBean infoBean;
 
 	@Column(name = "ISMARRIED")

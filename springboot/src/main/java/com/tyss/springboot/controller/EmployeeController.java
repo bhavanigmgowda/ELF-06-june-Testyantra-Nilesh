@@ -2,10 +2,17 @@ package com.tyss.springboot.controller;
 
 import java.util.Arrays;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +20,7 @@ import com.tyss.springboot.dto.EmployeeAddressInfo;
 import com.tyss.springboot.dto.EmployeeEducationInfo;
 import com.tyss.springboot.dto.EmployeeExperienceInfo;
 import com.tyss.springboot.dto.EmployeeInfoBean;
+import com.tyss.springboot.dto.EmployeeOtherInfoBean;
 import com.tyss.springboot.dto.EmployeeResponse;
 import com.tyss.springboot.repository.EmployeeRepository;
 
@@ -27,12 +35,11 @@ public class EmployeeController {
 		return "HelloWorld";
 	}
 
-	@PostMapping(path ="/create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path = "/create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeResponse createEmployee(@RequestBody EmployeeInfoBean bean) {
 		EmployeeResponse response = new EmployeeResponse();
 
-		
-        //check id is present or not
+		// check id is present or not
 		if (!repository.existsById(bean.getId())) {
 
 			// set Id
@@ -49,17 +56,13 @@ public class EmployeeController {
 			for (EmployeeExperienceInfo experienceInfo : bean.getExpInfoBean()) {
 				experienceInfo.getEmployeeExperiencePKBean().setInfoBean(bean);
 			}
+			EmployeeInfoBean manager = bean.getManagerId();
+			if (manager != null) {
+				// create bean obj
+				manager = repository.findById(manager.getId()).get(); // store manager in bean
 
-			EmployeeInfoBean manager = bean.getManagerId(); // create bean obj
-			manager = repository.findById(manager.getId()).get(); // store manager in bean
-			
-			
-			
-			
-			
-			
-			
-			bean.setManagerId(manager); // set Manager id
+				bean.setManagerId(manager); // set Manager id
+			}
 
 			repository.save(bean);
 
@@ -77,7 +80,7 @@ public class EmployeeController {
 
 	@GetMapping(path = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeResponse getEmployee(int id) {
-		
+
 		EmployeeResponse response = new EmployeeResponse();
 
 		if (repository.existsById(id)) {
@@ -113,12 +116,19 @@ public class EmployeeController {
 		}
 		return response;
 	}
-	@PostMapping(path = "/update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+
+	@PutMapping(path = "/update", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public EmployeeResponse updateEmployee(@RequestBody EmployeeInfoBean bean) {
 		EmployeeResponse response = new EmployeeResponse();
-
+               
+		// EmployeeOtherInfoBean otherInfobean=getOtherInfo(bean.getId());
+		 
+		 //  otherInfobean.setOtherInfoId(otherInfobean.getOtherInfoId());
+		
+		
+		  
 		if (repository.existsById(bean.getId())) {
-
+			bean.getOtherInfo().setOtherInfoId(repository.findByEmpId(bean).getOtherInfoId());
 			bean.getOtherInfo().setInfoBean(bean);
 
 			for (EmployeeAddressInfo addressInfo : bean.getAddressInfoBean()) {
@@ -134,8 +144,12 @@ public class EmployeeController {
 			}
 
 			EmployeeInfoBean manager = bean.getManagerId(); // create bean obj
-			manager = repository.findById(manager.getId()).get(); // store manager in bean
-			bean.setManagerId(manager); // set Manager id
+			if (manager != null) {
+				// create bean obj
+				manager = repository.findById(manager.getId()).get(); // store manager in bean
+
+				bean.setManagerId(manager); // set Manager id
+			}
 
 			repository.save(bean);
 			response.setStatusCode(201);
@@ -151,5 +165,56 @@ public class EmployeeController {
 
 		return response;
 	}
+	
+	  @GetMapping(value="/getOtherInfo",produces =MediaType.APPLICATION_JSON_VALUE)
+	  public EmployeeOtherInfoBean getOtherInfo(int id) {
+		  
+		  EmployeeInfoBean bean=new EmployeeInfoBean();
+		  bean.setId(id);
+		  
+		  return repository.findByEmpId(bean);
+		  
+	  }
+	  
+	  
+	  @PostMapping(value="/login",produces =MediaType.APPLICATION_JSON_VALUE)
+	  public EmployeeResponse login(int id,String password,HttpServletRequest request) {
+		  EmployeeResponse response=new EmployeeResponse();
+		   if(repository.existsById(id) && repository.findById(id).get().getPassword().equals(password)){
+			   response.setStatusCode(201);
+			   response.setMessage("Successfull");
+			   response.setDescription("User is successfully Logged in");
+		   }
+		   else {
+			   response.setStatusCode(401);
+			   response.setMessage("Failed");
+			   response.setDescription("Please Check Username and Password");
+			   
+		   }
+		  return response;
+	  }
+	  
+	  @GetMapping(value="/logout",produces =MediaType.APPLICATION_JSON_VALUE)
+	  public EmployeeResponse logout(HttpSession session) {
+		  EmployeeResponse response=new EmployeeResponse();
+		   if(session!=null) {
+			   session.invalidate();
+			   response.setStatusCode(201);
+			   response.setMessage("Successfull");
+			   response.setDescription("Logout Succesfully");
+		   }
+		   return response;
+	  }
+	  
+	  @GetMapping(value="/readCookies",produces =MediaType.APPLICATION_JSON_VALUE)
+	  public EmployeeResponse readCookie(@CookieValue(name="JSESSIONID") String session) {
+		  EmployeeResponse response=new EmployeeResponse();
+		  response.setStatusCode(201);
+		  response.setMessage("successfull");
+		  response.setDescription("JSession-Id ="+session);
+		  return response;
+	  }
+	  
+	  
 
 }// End of class+
