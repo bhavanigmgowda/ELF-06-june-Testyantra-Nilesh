@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import CreateUser from '../CreateUser';
 import Axios from 'axios';
+import { CLIENT_RENEG_LIMIT } from 'tls';
 export default class Homead extends Component {
 
                  constructor(props){
@@ -13,14 +14,58 @@ export default class Homead extends Component {
                       name:'',
                       password:'',
                       phone:'',
-                      useType:''
+                      useType:'',
+                      searchName:''
                    }
                  }
+
+
+                 getUserName=(e)=>{
+                    
+                  Axios.get('http://localhost:8080/getUserByName'+'?'+'name='+this.state.searchName)
+                  .then((response) => {
+                    
+                    let fetchedUser = []; //array 
+          
+                    for (let key in response.data.userList) {
+          
+                      //console.log(response.data[key])
+            
+                      fetchedUser.push({
+                        ...response.data.userList[key],
+                      
+                      })
+                      //concate two Object using 
+            
+                    }
+                    this.setState({
+                      UserData: fetchedUser
+          
+                    }) 
+          
+                    console.log('response', this.state.UserData);
+          
+                  }).catch((error)=>{
+                     
+                  })
+                }
+
+
+
  
 
-                 SerachPageAdmin=()=>{
+                 SerachPageAdmin=(e)=>{
                    debugger;
-                    this.props.history.push('/SearchAdmin'); 
+                   e.preventDefault();
+                    console.log("searchName",this.state.searchName);
+                  /*  this.props.history.push({
+                      pathname: '/SearchAdmin',
+                      state: { detail: this.state.searchName }
+                    })  */ 
+     
+                    this.getUserName();
+
+
                  }
 
                  logout=()=>{
@@ -34,10 +79,10 @@ export default class Homead extends Component {
                       this.props.history.push('/createUser')
                   }
 
-                  componentDidMount(props) {
-                    console.log('I mounted! Here are my props: ');
-                    this.getAllUser();
-                  }
+               //   componentDidMount(props) {
+               //  console.log('I mounted! Here are my props: ');
+               //    //this.getAllUser();
+               //  }
 
 
                   getAllUser=()=>{
@@ -117,7 +162,10 @@ export default class Homead extends Component {
                   <form className="form-inline my-2 my-lg-0">
                     <label htmlFor="inputState">Search User</label>
                     
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                    <input    value={this.state.searchName} onChange={(event)=>{
+                                            this.setState({searchName:event.target.value})
+                                        }} 
+              value={this.state.searchName} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                     <button onClick={this.SerachPageAdmin} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                   </form>
                 </div>
@@ -125,12 +173,15 @@ export default class Homead extends Component {
               <div className="content-title m-x-auto">
                 <i className="fa fa-dashboard" /> Admin
               <div>
+                <br></br>
+                <br></br>
+                <button className="btn btn-primary" onClick={this.getAllUser}>All-User</button>
                 <div id="AllUser">
                 
                 <table class="table table-dark">
                  
   <thead>
-  <h1> All User</h1> 
+  <h1>User Data</h1> 
     <tr>
       <th scope="col">UserId</th>
       <th scope="col">Username</th>

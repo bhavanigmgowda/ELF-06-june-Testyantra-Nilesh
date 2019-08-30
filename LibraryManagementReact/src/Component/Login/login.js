@@ -34,17 +34,23 @@ export default class Login extends Component {
       console.log("responser",response.data.userList[0].useType);
       console.log("responser",response.data);
          this.props.history.push('/homeAdmin');
+         localStorage.setItem('loginData',JSON.stringify(response.data));
         
 
        }
        else if(response.data.userList[0].useType==="Librarian"){
           this.props.history.push('/homeLibrarian');
+          localStorage.setItem('loginData',JSON.stringify(response.data));
       
          console.log("responser",response.data.userList[0].useType);
        }
        else{
          this.props.history.push('/home');
          console.log("responser",response.data.userList[0].useType);
+         localStorage.setItem('loginData',JSON.stringify(response.data));
+         let dd = JSON.parse(localStorage.getItem('loginData'));
+         console.log('login Local storage',dd.userList[0].id)
+         console.log(localStorage)
         
        }
       }

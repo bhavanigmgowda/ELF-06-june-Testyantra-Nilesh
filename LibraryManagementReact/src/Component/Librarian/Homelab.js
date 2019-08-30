@@ -7,6 +7,7 @@ import Axios from 'axios';
 export default class Homelab extends Component {
   constructor(props){
     super(props)
+     
    this.showLo = this.showLo.bind(this)
     this.state = {
       show : false,
@@ -19,25 +20,27 @@ export default class Homelab extends Component {
    price: '',
    searchBy:'',
    searchInput:'',
-   BookData:[]
+   BookData:[],
+   
 
     }
   }
   showLo(e){
     e.preventDefault();
 
+      this.setState.tableName="Search Book"
      let search;
-
+       
       console.log('searchtype',this.state.searchBy)
       console.log('searchtype',this.state.searchInput)
         if(this.state.searchBy==='BookName'){
             search='getBookByName';
         }
         else if(this.state.searchBy==='Author'){
-          search='getBookByName';
+          search='getBookByAuthor';
         }
         else{
-            search='getBookByName';
+            search='getBookByCategory';
         }
           let fetchedBook = []; //array 
         Axios.get('http://localhost:8080/'+search+'?'+this.state.searchBy+'='+this.state.searchInput)
@@ -104,6 +107,74 @@ export default class Homelab extends Component {
     }
 
 
+    getAllBooks=()=>{
+
+      //
+       this.setState.tableName="All Books"
+      let fetchedBook = []; //array 
+      Axios.get('http://localhost:8080/getAllBook')
+      .then((response) => {
+        console.log(response)
+       
+        if(response.data.code==201){
+          console.log("Daata Found ...");
+          for (let key in response.data.bookList) {
+  
+            //console.log(response.data[key])
+    
+            fetchedBook.push({
+              ...response.data.bookList[key],
+            
+            })
+            //concate two Object using 
+    
+          }
+          this.setState({
+            BookData: fetchedBook
+    
+          }) 
+          this.setState({
+            show : true
+          }
+          
+          )
+
+        } 
+        else {
+          console.log("Data Not Found ...");
+          this.setState({
+            show : false
+          }
+          
+          )
+         
+        }
+        console.log('response', this.state.BookData);
+          
+      }).catch((error)=>{
+       
+       
+  
+      })
+
+    }
+
+
+    deleteBook=(book)=>{
+      debugger;
+      console.log('delete',book)
+      Axios.get('http://localhost:8080/deleteBook'+'?'+'id='+book.bookid)
+      .then((response)=>{
+         console.log("response",response)
+         alert("deleted Succesfully")
+         window.location.reload(); 
+      }).catch((error)=>{
+          console.log('error',error)
+      })
+
+    }
+
+
 
     render() {
         return (
@@ -156,7 +227,10 @@ export default class Homelab extends Component {
               <div className="content-title m-x-auto">
                 <i className="fa fa-dashboard" /> librarian
                 <div>
-               
+                <br></br>
+                <br></br>
+                <button className="btn btn-primary" onClick={this.getAllBooks}>All-Books</button>
+                
             </div>
               {this.state.show ? <div>
               
@@ -165,7 +239,7 @@ export default class Homelab extends Component {
                   //console.log("BookData table ",this.state.BookData.length)
                   }
                  <thead>
-                 <h1> BookSearch</h1> 
+                 <h1>{tableName}</h1> 
                    <tr>
                      <th scope="col">Bookid</th>
                      <th scope="col">Bookname</th>
@@ -178,7 +252,6 @@ export default class Homelab extends Component {
                      
                    </tr>
                  </thead>
-                 <tbody>
                  {
                      this.state.BookData.map((book)=>{
                        console.log("***********");
@@ -186,6 +259,8 @@ export default class Homelab extends Component {
                        console.log("***********");
                        console.log('length',this.state.BookData.length)
                        return (
+                 <tbody>
+                
                    <tr>
                        
                      <th scope="row">{book.bookid}</th>
@@ -195,13 +270,14 @@ export default class Homelab extends Component {
                      <td>{book.language}</td>
                      <td>{book.noofCopies}</td>
                      <td><button type="button" class="btn btn-success"  >Update</button></td>
-                     <td><button type="button" class="btn btn-danger">Delete</button></td>
+                     <td><button onClick={this.deleteBook.bind(this,book)} type="button" class="btn btn-danger">Delete</button></td>
                      
                    </tr> 
-                       )
-                   })
-                   }   
+                      
                  </tbody>
+                 )
+                })
+                } 
                </table>
 
 
