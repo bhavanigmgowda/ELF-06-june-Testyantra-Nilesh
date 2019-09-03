@@ -11,8 +11,8 @@ public interface TaskRepository extends JpaRepository<CreateTaskBean, Integer> {
 
 	
 	 @Query("Select t " + "from CreateTaskBean t " +
-	           "where t.priority LIKE %:name") 
-	   CreateTaskBean getTaskByPriority(String name);
+	           "where t.priority LIKE :name%") 
+	   List<CreateTaskBean> getTaskByPriority(String name);
 	 
 	 @Query("Select  count(*) " + "from CreateTaskBean t " +
 	           "where t.priority LIKE %:name") 

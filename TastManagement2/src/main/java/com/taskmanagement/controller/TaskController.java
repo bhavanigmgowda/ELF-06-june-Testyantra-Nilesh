@@ -1,6 +1,8 @@
 package com.taskmanagement.controller;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,7 +21,6 @@ import com.taskmanagement.response.Response;
 
 import lombok.extern.java.Log;
 
-
 @RestController
 public class TaskController {
 
@@ -27,63 +28,68 @@ public class TaskController {
 	TaskRepository taskRepository;
 	@Autowired
 	UserRepository userRepository;
-	
-	
-	@GetMapping(path = "/getAssignToTask", 
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+
+	// get all task assigned to others todo
+	@GetMapping(path = "/getAssignToTask", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE })
 	public Response getAssignToTask(@RequestParam("email") String email, HttpServletRequest req) {
-		
+
 		Response response = new Response();
+		if (req.getSession(false) != null) {
+
 			if (userRepository.existsByEmail(email)) {
 				response.setStatusCode(201);
 				response.setMessage("Success");
 				response.setDescription("All Task data Assigned Found Successfully");
 				response.setTaskBean(taskRepository.getAssignTo(email));
-				
-				return response;
+
 			} else {
 				response.setStatusCode(401);
 				response.setMessage("Failure");
 				response.setDescription("Task data not found");
-			
-		    	return response;
-			}//End of getAssignToTask()
+
+			} // End of getAssignToTask()
+		} else {
+			response.setStatusCode(501);
+			response.setMessage("Login Failure");
+			response.setDescription("LoginFirst");
+
+		}
+		return response;
 	}
-	
-	
-	
-	@GetMapping(path = "/getAssignedTask", 
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+
+	// get all task Assigned To you
+	@GetMapping(path = "/getAssignedTask", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE })
 	public Response getAssignedTask(@RequestParam("email") String email, HttpServletRequest req) {
-		
+
 		Response response = new Response();
+		if (req.getSession(false) != null) {
 			if (userRepository.existsByEmail(email)) {
-				
+
 				response.setStatusCode(201);
 				response.setMessage("Success");
 				response.setDescription("All Task data Assigned Found Successfully");
 				response.setTaskBean(taskRepository.getAssignedTask(email));
-				
-				return response;
+
 			} else {
 				response.setStatusCode(401);
 				response.setMessage("Failure");
 				response.setDescription("Task data not found");
-			
+			}
+		} else {
+			response.setStatusCode(501);
+			response.setMessage("Login Failure");
+			response.setDescription("LoginFirst");
+		}
+		return response;
+	} // End of getAssignedTask()
 
-			return response;
-			}//End of getAssignedTask()
-	}
-	
-	
-	
-
-	@PostMapping(value = "/createTask",produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/createTask", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Response createTask(@RequestBody CreateTaskBean task) {
 		Response response = new Response();
 		if (userRepository.existsById(task.getUserBean().getEmpId())) {
-			
-		
+
 			taskRepository.save(task);
 			response.setStatusCode(201);
 			response.setMessage("Success");
@@ -94,57 +100,87 @@ public class TaskController {
 			response.setDescription("user id does not exist ");
 		}
 		return response;
-		
+
 	}// End of createTask()
-	
-	
-	
-	
-	@GetMapping(path = "/getAllTask", 
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+
+	@GetMapping(path = "/getAllTask", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	public Response getAllTask(HttpServletRequest req) {
-		
+
 		Response response = new Response();
-			if (taskRepository.findAll()!=null) {
+		if (req.getSession(false) != null) {
+			if (taskRepository.findAll() != null) {
 				response.setStatusCode(201);
 				response.setMessage("Success");
 				response.setDescription("Task data found successfully");
 				response.setTaskBean(taskRepository.findAll());
-				
+
 				return response;
 			} else {
 				response.setStatusCode(401);
 				response.setMessage("Failure");
 				response.setDescription("Task data not found");
-			
+			}
+		} else {
+			response.setStatusCode(501);
+			response.setMessage("Login Failure");
+			response.setDescription("LoginFirst");
 
-			return response;
-			}//End of getAlTask()
+		}
+		return response;
+		// End of getAlTask()
 	}
-	
-	
-	@GetMapping(path = "/getTaskByPriority", 
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+
+	@GetMapping(path = "/getTaskByPriority", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE })
 	public Response getTaskByPriority(@RequestParam("name") String name, HttpServletRequest req) {
-		
-		      Response response = new Response();
-			if (taskRepository.countTask(name)>=0) {
+
+		Response response = new Response();
+		if (req.getSession(false) != null) {
+			if (taskRepository.countTask(name) >= 0) {
 				response.setStatusCode(201);
 				response.setMessage("Success");
 				response.setDescription("Task data found successfully");
-				response.setTaskBean(Arrays.asList(taskRepository.getTaskByPriority(name)));
-				return response;
+				response.setTaskBean(taskRepository.getTaskByPriority(name));
+
 			} else {
 				response.setStatusCode(401);
 				response.setMessage("Failure");
 				response.setDescription("Task data not found");
-			
+			}
+		} else {
+			response.setStatusCode(501);
+			response.setMessage("Login Failure");
+			response.setDescription("LoginFirst");
 
-			return response;
-			}//End of getTask()
+		}
+		return response;
+	}// End of getTask()
+
+	@PostMapping(value = "/updateTaskStatus", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Response updateStatus(@RequestParam("taskId") int taskId, @RequestParam("status") String status,
+			HttpServletRequest req) {
+		CreateTaskBean taskbean = taskRepository.findById(taskId).get();
+		Response response = new Response();
+		if (req.getSession(false) != null) {
+			if (taskbean != null) {
+				taskbean.setStatus(status);
+				taskRepository.save(taskbean);
+				response.setStatusCode(201);
+				response.setMessage("Success");
+				response.setDescription("Status Change successfully");
+
+			} else {
+				response.setStatusCode(401);
+				response.setMessage("Failure");
+				response.setDescription("Status not Changed");
+			}
+		} else {
+			response.setStatusCode(501);
+			response.setMessage("Login Failure");
+			response.setDescription("LoginFirst");
+		}
+
+		return response;
 	}
-	
-	
-
 
 }

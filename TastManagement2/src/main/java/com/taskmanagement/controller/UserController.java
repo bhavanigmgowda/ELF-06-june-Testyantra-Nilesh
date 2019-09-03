@@ -79,7 +79,7 @@ public class UserController {
 	}// End of logout()
 
 	@GetMapping("/readCookie")
-	public Response readCookie(@CookieValue(name = "JSESSIONID") String sessionId) {
+	public Response readCookie(@CookieValue(name ="JSESSIONID") String sessionId) {
 		Response response = new Response();
 		response.setStatusCode(201);
 		response.setMessage("Success");
